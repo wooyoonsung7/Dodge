@@ -12,11 +12,16 @@ public class GameManger : MonoBehaviour
 
     private float surviveTime;
     private bool isGameover;
+
+    public AudioSource audioGameOver;
+
     // Start is called before the first frame update
     void Start()
     {
         surviveTime = 0;
         isGameover = false;
+
+        audioGameOver = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,6 +64,8 @@ public class GameManger : MonoBehaviour
         }
 
         recordText.text = "Best Time : " + (int) bestTime;
+
+        audioGameOver.Play();
     }
 
 }
